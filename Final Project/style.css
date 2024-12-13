@@ -1,0 +1,181 @@
+:root{
+    --colorWhite:#fff;
+    --colorBlack:black;
+    --colorBlue:blue;
+    --borderRadius:5px;
+    --backgroundColor: #eee;
+    --colorP:black;
+    --backgroundListColor:white;
+
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+html{
+    background-color: var(--backgroundColor);
+}
+
+.container{
+    background-color: var(--backgroundColor);
+    min-height: 100vh;
+    width: 100%;
+    color:rgb(15, 15, 95);
+    &.darkTheme{
+        --backgroundColor:rgb(24, 24, 36);
+        --colorWhite:rgb(39, 41, 62);
+        --colorP:white;
+    }
+
+    .backgroundImg{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 43%;
+        width: 100%;
+    }
+
+    .app{
+        position: relative;
+        width: 90%;
+        max-width: 450px;
+        margin: 60px auto;
+
+        .app__title{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+
+            .moodIcon{
+                cursor: pointer;
+            }
+        }
+
+        .app__input{
+            width: 100%;
+            padding: 15px 30px;
+            border: 0;
+            outline: 0;
+            font-size: 16px;
+            margin: 30px 0;
+            border-radius:var(--borderRadius);
+            background-color: var(--colorWhite);
+            color: var(--colorP);
+        }
+
+        .tasksList{
+            background-color: var(--colorWhite);
+            border-radius: var(--borderRadius);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            color: var(--colorBlack);
+            list-style: none;
+            box-shadow: rgb(145, 143, 143)  0px 0px 2px;
+            li{
+                border-bottom: 1px solid #c0bebe;
+                padding: 15px 50px;
+                position: relative;
+                cursor: pointer;
+                color: var(--colorP);
+                user-select: none;
+                /* outline: 0; */
+
+                &.completed{
+                    text-decoration: line-through;
+                    &::before{
+                        background:
+                        url(./images/icon-check.svg) no-repeat center,
+                        linear-gradient(120deg,rgb(126, 192, 254),rgb(195, 126, 241));
+                        background-size:9px, cover;
+                        z-index: 0;
+                        border: 0;
+                    }
+                }
+
+                &.dragging{
+                    opacity: .3;
+                }
+
+                &::before{
+                    content: " ";
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    left: 15px;
+                    top: 17px;
+                    border:  1px solid var(--colorP);
+                    border-radius: 50%;
+                }
+
+                &:hover{
+                    span{display: block;}
+                }
+
+                span{
+                    position: absolute;
+                    right: 15px;
+                    top: 9px;
+                    font-size: 18px;
+                    color: #6e6b6b;
+                    font-weight: 200;
+                    padding: 5px 11px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    user-select: none;
+                    display: none;
+
+                    transition: .2s;
+                    &:hover{
+                    background-color: #3cb8f1;
+                    }
+                }
+            }
+        }
+
+        .tasksSections{ 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            font-size: 13px;
+            color:rgb(139, 139, 139);
+            background-color: var(--colorWhite);
+            box-shadow: rgb(145, 143, 143)  0px 0px 2px;
+            border-radius: var(--borderRadius);
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+            display: none;
+
+            .tasksSections__list{
+                display: flex;
+                gap: 20px;
+
+                p{
+                    font-weight: 500;
+                    font-size: 14px;
+                    cursor: pointer;
+                    transition: .2s;
+
+                    &.listActive{
+                        color: blue;
+                    }
+                    /* &:hover{color: var(--colorBlack);} */
+                }
+
+            }
+        }
+
+        .drag{
+            color: var(--colorP);
+            margin: 30px 0;
+            text-align: center;
+            display: none;
+        }
+
+    }
+
+}

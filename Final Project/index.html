@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <div class="container">
+        <img class="backgroundImg" src="./images/bg-desktop-light.jpg" alt="background img">
+        <div class="app">
+            <div class="app__title">
+                <h1>Todo List</h1>
+                <img class="modeIcon" src="./images/icon-moon.svg" alt="mode icon" tabindex="0">
+            </div>
+            <input class="app__input" type="text" placeholder="Add your task">
+            <ul class="tasksList">
+                <li tabindex="0">read for 1 hour  <span>x</span></li>
+                <li>read for 1 hour</li>
+                <li>read for 1 hour</li>
+                <li>read for 1 hour</li> 
+            </ul>
+            <div class="tasksSections">
+                <p><span class="numOfTasks">0</span> items left</p>
+                <div class="tasksSections__list">
+                    <p id="all" tabindex="0">All</p>
+                    <p id="active" tabindex="0">Active</p>
+                    <p id="completed" tabindex="0">Completed</p>
+                    <p id="clearCompleted" tabindex="0">Clear Completed</p>
+                </div>
+            </div>
+
+            <p class="drag">Drag and drop to reorder list</p>
+        </div>
+    </div>
+
+    <script src="./js/script.js" type="module"></script>
+</body>
+</html>
